@@ -1,0 +1,85 @@
+
+.dark-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: -1;
+    opacity: 0;
+}
+
+.modal {
+    display: flex;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    background: white;
+    box-shadow: gray 1px 1px 6px;
+    z-index: -1;
+    opacity: 0;
+}
+
+.activebackground {
+    opacity: .8;
+    z-index: 1;
+}
+
+.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.modal-content {
+    min-width: 800px;
+    padding: 15px;
+}
+
+.modal-content-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 5px;
+    gap: 5px;
+}
+
+.modal-content-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: right;
+    margin: 5px 0;
+}
+
+.modal-buttons > button {
+    background-color: yellowgreen;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+.modal-content-1 > input {
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.modal-content-2 > input {
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.modal-title {
+    text-align: center;
+    background: yellowgreen;
+    font-size: 30px;
+}
