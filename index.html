@@ -23,7 +23,7 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-body">
                     <tr>
                         <td>Maria sef asdfafgsergseseg </td>
                         <td>maria#gmail.coom</td>
@@ -31,20 +31,15 @@
                         <td>franca</td>
                         <td><button class="btn-edit">Edit</button><button class="btn-remove">Remove</button></td>
                     </tr>
-                    <tr>
-                        <td>Maria</td>
-                        <td>maria#gmail.coom</td>
-                        <td>48945290843</td>
-                        <td>franca</td>
-                        <td><button class="btn-edit">Edit</button><button class="btn-remove">Remove</button></td>
-                    </tr>
-                    <tr>
-                        <td>Maria</td>
-                        <td>maria#gmail.coom</td>
-                        <td>48945290843</td>
-                        <td>franca</td>
-                        <td><button class="btn-edit">Edit</button><button class="btn-remove">Remove</button></td>
-                    </tr>
+                    <!--
+                        <tr class="client-element">
+                            <td class="client-name"></td>
+                            <td class="client-email"></td>
+                            <td class="client-number"></td>
+                            <td class="client-city"></td>
+                            <td><button class="btn-edit">Edit</button><button class="btn-remove">Remove</button></td>
+                        </tr>
+                    -->
                 </tbody>
             </table>
         </main>
@@ -57,13 +52,14 @@
         <div class="modal-content">
             <div class="modal-content-1">
                 <input type="text" placeholder="Name" class="name">
-                <input type="text" placeholder="E-mail" class="email">
+                <input type="email" placeholder="E-mail" class="email">
             </div>
             <div class="modal-content-2">
                 <input type="text" placeholder="Number" class="number">
                 <input type="text" placeholder="City" class="city">
             </div>
             <div class="modal-buttons">
+                <span class="warn"></span>
                 <button class="btn-save">Save</button>
                 <button class="btn-cancel">Cancel</button>
             </div>

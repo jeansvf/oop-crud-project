@@ -54,7 +54,14 @@
 .modal-buttons {
     display: flex;
     justify-content: right;
+    align-items: center;
     margin: 5px 0;
+}
+
+.warn {
+    font-size: 15px;
+    color: red;
+    margin-right: 5px;
 }
 
 .modal-buttons > button {
