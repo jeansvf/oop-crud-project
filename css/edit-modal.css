@@ -1,20 +1,4 @@
-.dark-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: black;
-    z-index: -1;
-    opacity: 0;
-}
-
-.activebackground {
-    opacity: .8;
-    z-index: 1;
-}
-
-.modal {
+.e-modal {
     display: flex;
     position: fixed;
     left: 50%;
@@ -27,57 +11,57 @@
     opacity: 0;
 }
 
-.modal-title {
+.e-modal-title {
     text-align: center;
-    background: yellowgreen;
+    background: #ffff0083;
     font-size: 30px;
 }
 
-.modal-content {
+.e-modal-content {
     min-width: 800px;
     padding: 15px;
 }
 
-.modal-content-1 {
+.e-modal-content-1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 5px;
     gap: 5px;
 }
 
-.modal-content-1 > input {
+.e-modal-content-1 > input {
     padding: 10px;
     border: 1px solid gray;
     border-radius: 5px;
 }
 
-.modal-content-2 {
+.e-modal-content-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5px;
 }
 
-.modal-content-2 > input {
+.e-modal-content-2 > input {
     padding: 10px;
     border: 1px solid gray;
     border-radius: 5px;
 }
 
-.modal-buttons {
+.e-modal-buttons {
     display: flex;
     justify-content: right;
     align-items: center;
     margin: 5px 0;
 }
 
-.modal-warn {
+.e-warn {
     font-size: 15px;
     color: red;
     margin-right: 5px;
 }
 
-.modal-buttons > button {
-    background: yellowgreen;
+.e-modal-buttons > button {
+    background: #ffff0083;
     border: 1px solid gray;
     border-radius: 5px;
     padding: 5px;

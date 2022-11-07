@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/modal.css">
+    <link rel="stylesheet" href="/css/edit-modal.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,27 +25,13 @@
                     </tr>
                 </thead>
                 <tbody class="table-body">
-                    <tr>
-                        <td>Maria sef asdfafgsergseseg </td>
-                        <td>maria#gmail.coom</td>
-                        <td>48945290843</td>
-                        <td>franca</td>
-                        <td><button class="btn-edit">Edit</button><button class="btn-remove">Remove</button></td>
-                    </tr>
-                    <!--
-                        <tr class="client-element">
-                            <td class="client-name"></td>
-                            <td class="client-email"></td>
-                            <td class="client-number"></td>
-                            <td class="client-city"></td>
-                            <td><button class="btn-edit">Edit</button><button class="btn-remove">Remove</button></td>
-                        </tr>
-                    -->
                 </tbody>
             </table>
         </main>
     </div>
     <div class="dark-background"></div>
+
+    <!-- REGISTERING USER MODAL -->
     <div class="modal">
         <div class="modal-title">
             <h2>New Client</h2>
@@ -59,12 +46,36 @@
                 <input type="text" placeholder="City" class="city">
             </div>
             <div class="modal-buttons">
-                <span class="warn"></span>
+                <span class="modal-warn"></span>
                 <button class="btn-save">Save</button>
                 <button class="btn-cancel">Cancel</button>
             </div>
         </div>
     </div>
+    <!-- END OF REGISTERING USER MODAL -->
+
+    <!-- EDIT USER MODAL -->
+    <div class="e-modal">
+        <div class="e-modal-title">
+            <h2>Edit</h2>
+        </div>
+        <div class="e-modal-content">
+            <div class="e-modal-content-1">
+                <input type="text" placeholder="Name" class="e-name">
+                <input type="email" placeholder="E-mail" class="e-email">
+            </div>
+            <div class="e-modal-content-2">
+                <input type="text" placeholder="Number" class="e-number">
+                <input type="text" placeholder="City" class="e-city">
+            </div>
+            <div class="e-modal-buttons">
+                <span class="e-warn"></span>
+                <button class="e-btn-save">Save</button>
+                <button class="e-btn-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <!-- END OF EDIT USER MODAL -->
     
 <script src="script.js"></script>
 </body>
