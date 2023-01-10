@@ -1,39 +1,41 @@
 class Client {
     constructor() {
-
+        this.users = [];
     }
 
-    createClient(client) {
-        let tableBody = document.querySelector(".table-body");
-        let tr = document.createElement("tr");
-        let tdName = document.createElement("td");
-        let tdEmail = document.createElement("td");
-        let tdNumber = document.createElement("td");
-        let tdCity = document.createElement("td");
-        let btnEdit = document.createElement("button");
-        let btnRemove = document.createElement("button");
-        btnEdit.classList.add("btn-edit");
-        btnRemove.classList.add("btn-remove");
-
-        tdName.textContent = client.clientName;
-        tdEmail.textContent = client.clientEmail;
-        tdNumber.textContent = client.clientNumber;
-        tdCity.textContent = client.clientCity;
-        btnEdit.textContent = "edit";
-        btnRemove.textContent = "remove";
-
-        btnRemove.addEventListener("click", (e) => e.target.parentNode.remove());
-        btnEdit.addEventListener("click", () => this.editClient());
-        
-        tr.appendChild(tdName);
-        tr.appendChild(tdEmail);
-        tr.appendChild(tdNumber);
-        tr.appendChild(tdCity);
-
-        tr.appendChild(btnEdit);
-        tr.appendChild(btnRemove);
-
-        tableBody.appendChild(tr);
+    render() {
+        this.users.forEach((client) => {
+            let tableBody = document.querySelector(".table-body");
+            let tr = document.createElement("tr");
+            let tdName = document.createElement("td");
+            let tdEmail = document.createElement("td");
+            let tdNumber = document.createElement("td");
+            let tdCity = document.createElement("td");
+            let btnEdit = document.createElement("button");
+            let btnRemove = document.createElement("button");
+            btnEdit.classList.add("btn-edit");
+            btnRemove.classList.add("btn-remove");
+            
+            tdName.textContent = client.clientName;
+            tdEmail.textContent = client.clientEmail;
+            tdNumber.textContent = client.clientNumber;
+            tdCity.textContent = client.clientCity;
+            btnEdit.textContent = "edit";
+            btnRemove.textContent = "remove";
+            
+            btnRemove.addEventListener("click", (e) => e.target.parentNode.remove());
+            btnEdit.addEventListener("click", () => this.editClient());
+            
+            tr.appendChild(tdName);
+            tr.appendChild(tdEmail);
+            tr.appendChild(tdNumber);
+            tr.appendChild(tdCity);
+            
+            tr.appendChild(btnEdit);
+            tr.appendChild(btnRemove);
+            
+            tableBody.appendChild(tr);
+        })
     }
 
     editClient() {
@@ -45,7 +47,9 @@ class Client {
         let client = this.readData();
 
         if(this.checkFields(client)) {
-        this.createClient(client);
+        this.users.push(client);
+        document.querySelector(".table-body").innerText = '';
+        this.render();
         }
     }
 
@@ -80,8 +84,6 @@ class Client {
             console.log(msg);
             return false;
         }
-
-        console.log(client)
         return true;
     }
 }
