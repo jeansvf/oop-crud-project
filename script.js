@@ -1,6 +1,7 @@
 class Client {
     constructor() {
         this.users = [];
+        this.clickedUserId;
     }
 
     render() {
@@ -15,6 +16,9 @@ class Client {
             let btnRemove = document.createElement("button");
             btnEdit.classList.add("btn-edit");
             btnRemove.classList.add("btn-remove");
+
+            client.clientId = Math.floor(Math.random()*1000000);
+            tr.setAttribute("client-id", client.clientId);
             
             tdName.textContent = client.clientName;
             tdEmail.textContent = client.clientEmail;
@@ -23,8 +27,11 @@ class Client {
             btnEdit.textContent = "edit";
             btnRemove.textContent = "remove";
             
-            btnRemove.addEventListener("click", (e) => e.target.parentNode.remove());
-            btnEdit.addEventListener("click", () => this.editClient());
+            btnRemove.addEventListener("click", (e) => this.removeClient(e));
+            btnEdit.addEventListener("click", (e) => {
+                this.showEditMenu(e)
+                this.clickedUserId = e.target.parentNode.getAttribute("client-id");
+            });
             
             tr.appendChild(tdName);
             tr.appendChild(tdEmail);
@@ -38,14 +45,46 @@ class Client {
         })
     }
 
-    editClient() {
-        document.querySelector(".e-modal").classList.add("active");
-        // ...
+    showEditMenu(e) {
+        document.querySelector(".e-modal").classList.add("active"); 
+        let nodeClientId = e.target.parentNode.getAttribute("client-id");
+        
+        for (let i=0; i < this.users.length; i++) {
+            if (this.users[i].clientId == nodeClientId) {
+                document.querySelector(".e-name-input").value = this.users[i].clientName;
+                document.querySelector(".e-email-input").value = this.users[i].clientEmail;
+                document.querySelector(".e-number-input").value = this.users[i].clientNumber;
+                document.querySelector(".e-city-input").value = this.users[i].clientCity;
+            }
+        }
+    }
+
+    saveEditMenu() {
+        for (let i=0; i < this.users.length; i++) {
+            if (this.users[i].clientId == this.clickedUserId) {
+                this.users[i].clientName = document.querySelector(".e-name-input").value;
+                this.users[i].clientEmail = document.querySelector(".e-email-input").value;
+                this.users[i].clientNumber = document.querySelector(".e-number-input").value;
+                this.users[i].clientCity = document.querySelector(".e-city-input").value;
+                document.querySelector(".table-body").innerText = '';
+                this.render();
+            }
+        }
+    }
+
+    removeClient(e) {
+        let nodeClientId = e.target.parentNode.getAttribute("client-id");
+        for (let i=0; i < this.users.length; i++){
+            if (this.users[i].clientId == nodeClientId) {
+                this.users.splice([i], 1);
+            }
+        }
+        document.querySelector(".table-body").innerText = '';
+        this.render();
     }
 
     addClient() {
         let client = this.readData();
-
         if(this.checkFields(client)) {
         this.users.push(client);
         document.querySelector(".table-body").innerText = '';
@@ -113,6 +152,12 @@ btnRegister.addEventListener("click", () => {
 });
 
 const eModal = document.querySelector(".e-modal");
+
+const ebtnSave = document.querySelector(".e-btn-save");
+ebtnSave.addEventListener("click", () => {
+    client.saveEditMenu();
+    eModal.classList.remove("active")});
+
 const eBtnCancel = document.querySelector(".e-btn-cancel");
 eBtnCancel.addEventListener("click", () => eModal.classList.remove("active"))
 
